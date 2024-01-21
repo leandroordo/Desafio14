@@ -173,6 +173,8 @@ function submitForm(inputs, e) {
       window.alert(e.target.dataset.submitmessage);
     }
     return true;
+  } else {
+    mostrarToast(errors);
   }
 
   return false;
@@ -189,4 +191,29 @@ function validateEmail(email) {
 function validateRegularExpression(regularExpression, value) {
   const re = new RegExp(regularExpression);
   return re.test(String(value));
+}
+
+function clearErrors() {
+  const errores = document.querySelectorAll("small[data-formerror]");
+  for (let errorEl of errores) {
+    errorEl.innerText = "";
+    errorEl.style.display = "none";
+  }
+
+  const inputs = document.querySelectorAll("[data-validate]");
+  for (let inputEl of inputs) {
+    inputEl.classList.remove("error");
+  }
+}
+
+//Mostar toast con errores
+function mostrarToast(errores) {
+  var mensaje =
+    "<ul>" + errores.map((error) => "<li>" + error + "</li>").join("");
+  +"</ul>";
+
+  leandrosToast.toast({
+    titulo: "Por favor corrija los siguientes problemas:",
+    mensaje,
+  });
 }
