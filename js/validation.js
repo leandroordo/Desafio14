@@ -45,6 +45,7 @@ function validateInput(input) {
   if (
     !error &&
     input.dataset.minlength !== undefined &&
+    value &&
     value.length < +input.dataset.minlength
   ) {
     error = input.dataset.minlengthmessage
@@ -57,6 +58,7 @@ function validateInput(input) {
   if (
     !error &&
     input.dataset.maxlength !== undefined &&
+    value &&
     value.length > +input.dataset.maxlength
   ) {
     error = input.dataset.maxlengthmessage
@@ -66,7 +68,12 @@ function validateInput(input) {
   }
 
   // Validar mail
-  if (!error && input.dataset.email !== undefined && !validateEmail(value)) {
+  if (
+    !error &&
+    input.dataset.email !== undefined &&
+    value &&
+    !validateEmail(value)
+  ) {
     error = input.dataset.emailerrormessage
       ? input.dataset.emailerrormessage
       : "Dirección de email incorrecta";
@@ -90,7 +97,8 @@ function validateInput(input) {
   if (
     !error &&
     input.dataset.validatedocumento !== undefined &&
-    input.dataset.documentobasedon !== undefined
+    input.dataset.documentobasedon !== undefined &&
+    value
   ) {
     // Obtener el option indicado por el atributo data-documentobasedon
     const inputDni = input
@@ -116,7 +124,8 @@ function validateInput(input) {
   if (
     !error &&
     input.dataset.validatecuil !== undefined &&
-    input.dataset.cuilbasedon !== undefined
+    input.dataset.cuilbasedon !== undefined &&
+    value
   ) {
     // Obtener el option indicado por el atributo data-cuilbasedon
     const inputCuil = input

@@ -76,13 +76,18 @@ h1 {
 .form__fieldwrapper {
   width: 100%;
 }
-.form__fieldwrapper-input {
+
+.form__fieldwrapper-input,
+.form__fieldwrapper-textarea {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  height: 26px;
   line-height: 26px;
   padding-left: 5px;
+}
+
+.form__fieldwrapper-input {
+  height: 26px;
 }
 
 label {
@@ -91,25 +96,33 @@ label {
 
 input[type="text"],
 input[type="tel"],
-input[type="email"] {
+input[type="email"],
+textarea {
   font-family: "Montserrat", sans-serif;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   border-color: rgba(132, 106, 221, 0.8);
   outline: 0;
   transition: 0.2s all ease-in-out;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #86b7fe;
   opacity: 1;
 }
 
 input:hover,
+textarea:hover,
 .radio-container > label:hover {
   background-color: #e9ecef;
   transition: 0.2s all ease-in-out;
+}
+
+textarea {
+  resize: vertical;
 }
 
 /*Radio*/

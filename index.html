@@ -223,17 +223,26 @@
             </div>
           </div>
           <div class="form__row-fullwidth">
-            <label class="form__row-label" for="comments">Comentarios:</label>
+            <label class="form__row-label" for="comments">Comentarios*:</label>
             <div class="form__fieldwrapper" data-formgroup>
-              <input
-                type="text"
+              <textarea
                 name="comments"
+                rows="3"
                 id="comments"
-                class="form__fieldwrapper-input"
+                class="form__fieldwrapper-textarea"
                 maxlength="200"
+                required
                 data-validate
                 data-maxlength="200"
-              />
+                minlength="3"
+                maxlength="13"
+                data-required
+                data-requiredmessage="No olvide escribir el comentario"
+                data-minlength="3"
+                data-minlengthmessage="El comentario es muy corto. Escriba un comentario más largo"
+                data-minlength="200"
+                data-minlengthmessage="El comentario es demasiado largo. Escriba un comentario más corto"
+              ></textarea>
               <small data-formerror></small>
             </div>
           </div>
