@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: rgba(132, 106, 221, 0.8);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}
+
+.main {
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 6px 6px 12px 4px rgba(122, 122, 122, 0.77);
+}
+
+.form__title {
+  background-image: url("./../images/header-background.jpg");
+  width: 100%;
+  min-height: 128px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  overflow: hidden;
+  padding: 30px 15px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #c8c8c8;
+  line-height: 1.2;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.form__main {
+  padding: 1.5rem 1rem;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: rgb(247, 247, 247);
+}
+
+.form__row,
+.form__row-fullwidth {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.form__row-buttons {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form__fieldwrapper {
+  width: 100%;
+}
+.form__fieldwrapper-input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 5px;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  font-family: "Montserrat", sans-serif;
+}
+
+input:focus {
+  border-color: rgba(132, 106, 221, 0.8);
+  outline: 0;
+  transition: 0.2s all ease-in-out;
+}
+
+input::placeholder {
+  color: #86b7fe;
+  opacity: 1;
+}
+
+input:hover,
+.radio-container > label:hover {
+  background-color: #e9ecef;
+  transition: 0.2s all ease-in-out;
+}
+
+/*Radio*/
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+  width: 80px;
+}
+
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.radio-container input[type="radio"]:checked + label {
+  background: rgba(132, 106, 221, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*Botones*/
+button {
+  outline: none;
+  border: none;
+  background: 0 0;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 42px;
+  border-radius: 12px;
+  background: #846add;
+  box-shadow: 0 10px 30px 0 rgba(132, 106, 221, 0.5);
+  transition: all 0.4s;
+}
+
+button:hover {
+  background: #333;
+  box-shadow: 0 10px 30px 0 rgba(51, 51, 51, 0.5);
+}
+
+/*Otros*/
+small {
+  color: rgb(245, 112, 46);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.error {
+  border-color: rgb(245, 112, 46) !important;
+}
+
+@media (min-width: 425px) {
+  .main {
+    width: 425px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .form__row {
+    flex-direction: row;
+  }
+  .form__row-fullwidth {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form__row-buttons {
+    flex-direction: row;
+  }
+  .form__row-label {
+    width: 220px;
+  }
+}
+@media (min-width: 768px) {
+  .main {
+    width: 768px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 20px;
+  }
+  .form__row-fullwidth,
+  .form__row-buttons {
+    grid-column: span 2;
+  }
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío 14</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="form__title">
+        <h1>Contacto</h1>
+      </div>
+      <div class="form__main">
+        <form
+          data-form
+          data-submitmessage="Gracias por contactarse con nosotros. Nos comunicaremos en breve"
+        >
+          <div class="form__row">
+            <label class="form__row-label" for="first-name">Nombre:</label>
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                class="form__fieldwrapper-input"
+                minlength="3"
+                maxlength="21"
+                data-validate
+                data-regularexpression="^[A-ZÑÁÉÍÓÚa-zñáéíóú]{3,10}( [A-ZÑÁÉÍÓÚa-zñáéíóú]{3,10})?$"
+                data-errormessage="El nombre no es correcto"
+                data-formatname
+                data-minlength="3"
+                data-minlengthmessage="Escriba 3 o más caracteres en el apellido"
+                data-maxlength="21"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="first-lastname"
+              >Apellido*:</label
+            >
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="first-lastname"
+                id="first-lastname"
+                class="form__fieldwrapper-input"
+                required
+                minlength="2"
+                maxlength="41"
+                data-validate
+                data-required
+                data-requiredmessage="No olvide completar el apellido"
+                data-regularexpression="^[A-Za-zñÑ']{2,20}( [A-Za-zñÑ']{2,20})?$"
+                data-errormessage="El apellido no es correcto"
+                data-minlength="2"
+                data-minlengthmessage="Escriba 2 o más caracteres en el apellido"
+                data-maxlength="41"
+                data-maxlengthmessage="No escriba más de 41 caracteres en el apellido"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="first-lastname"
+              >Tipo de documento:</label
+            >
+            <div class="form__fieldwrapper">
+              <div class="radio-container">
+                <input
+                  checked=""
+                  id="dni"
+                  name="tipo-documento"
+                  type="radio"
+                  value="dni"
+                />
+                <label for="dni">DNI</label>
+                <input
+                  id="cuil"
+                  name="tipo-documento"
+                  type="radio"
+                  value="macuille"
+                />
+                <label for="cuil">CUIL</label>
+              </div>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="id"
+              >Número de documento*:</label
+            >
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="id"
+                id="id"
+                class="form__fieldwrapper-input"
+                required
+                data-validate
+                minlength="7"
+                maxlength="13"
+                data-required
+                data-requiredmessage="No olvide completar el número de documento o CUIL"
+                data-validatedocumento
+                data-documentoregularexpression="^(\d{7,8}|(\d{1,2}\.\d{3}\.\d{3}))$"
+                data-documentobasedon="dni"
+                data-errormessagedocumento="El número de documento no es correcto"
+                data-validatecuil
+                data-cuilbasedon="cuil"
+                data-errormessagecuil="El número de CUIL no es correcto"
+                data-minlength="7"
+                data-maxlength="13"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row-fullwidth">
+            <label class="form__row-label" for="address">Dirección:</label>
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                class="form__fieldwrapper-input"
+                minlength="10"
+                maxlength="200"
+                data-validate
+                data-minlength="10"
+                data-minlengthmessage="Escriba 10 o más caracteres en la dirección"
+                data-maxlength="200"
+                data-maxlengthmessage="No escriba más de 200 caracteres en la dirección"
+                data-regularexpression='^([A-Za-zñÑçÇáéíóúÁÉÍÓÚà 1234567890,\-.\(\)\&#39;\"º\/]{2,200})$'
+                data-errormessage="La dirección no es correcta"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="postal-code"
+              >Código postal:</label
+            >
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="postal-code"
+                id="postal-code"
+                class="form__fieldwrapper-input"
+                data-validate
+                minlength="4"
+                maxlength="8"
+                data-minlength="4"
+                data-maxlength="8"
+                data-regularexpression="^(\d{4}|[A-Z]\d{4}[A-Z]{3})$"
+                data-errormessage="El código postal no es correcto"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="tel">Teléfono:</label>
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="tel"
+                name="tel"
+                id="tel"
+                class="form__fieldwrapper-input"
+                data-validate
+                minlength="6"
+                maxlength="17"
+                data-regularexpression="^[\d()\- ]{6,17}$"
+                data-errormessage="El número de teléfono no es correcto"
+                data-minlength="6"
+                data-maxlength="17"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row">
+            <label class="form__row-label" for="email">Email*:</label>
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form__fieldwrapper-input"
+                minlength="5"
+                maxlength="255"
+                data-validate
+                data-required
+                data-requiredmessage="No olvide escribir su dirección de e-mail"
+                data-minlength="5"
+                data-maxlength="255"
+                data-email
+                data-emailerrormessage="Escriba una dirección válida de e-mail"
+                data-toastmessage="La dirección de email no es correcta"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <label class="form__row-label" for="birthdate"
+              >Fecha de nacimiento:</label
+            >
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="birthdate"
+                id="birthdate"
+                class="form__fieldwrapper-input"
+                data-validate
+                minlength="8"
+                maxlength="10"
+                data-regularexpression="^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$"
+                data-errormessage="La fecha de nacimiento no es válida"
+                data-minlength="8"
+                data-maxlength="10"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row-fullwidth">
+            <label class="form__row-label" for="comments">Comentarios:</label>
+            <div class="form__fieldwrapper" data-formgroup>
+              <input
+                type="text"
+                name="comments"
+                id="comments"
+                class="form__fieldwrapper-input"
+                maxlength="200"
+                data-validate
+                data-maxlength="200"
+              />
+              <small data-formerror></small>
+            </div>
+          </div>
+          <div class="form__row-buttons">
+            <button class="contact100-form-btn">Enviar</button>
+            <button type="reset" class="contact100-form-btn">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/validation.js"></script>
+  </body>
+</html>
